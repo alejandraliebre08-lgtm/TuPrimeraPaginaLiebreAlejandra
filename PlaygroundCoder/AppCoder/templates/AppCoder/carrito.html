@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+</head>
+<body>
+      {% extends "AppCoder/inicio.html" %}
+      {% load static %}
+
+      {% block contenidoQueCambia %}
+      <h1>CARRITO</h1>
+      <p>PRODUCTOS SELECCIONADOS PARA LA COMPRA</p>
+
+     {% for carrito in carritos %}
+     <h3>{{ carrito.producto.nombre }}</h3>
+     <p>Precio: ${{ carrito.producto.precio }}</p>
+     <p>Cantidad: {{ carrito.cantidad }}</p>
+     <hr>
+     {% empty %}
+     <p>EL CARRITO ESTÁ VACÍO</p>
+     {% endfor %}
+
+     {% endblock %}
+</body>
+</html>

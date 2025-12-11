@@ -1,0 +1,27 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente</title>
+</head>
+<body>
+    {% extends "AppCoder/inicio.html" %}
+    {% load static %}
+    {% block contenidoQueCambia %}
+       <h1>En esta sección se pueden cargar y consultar los datos de los clientes
+que realizan pedidos en el e-commerce</h1>
+       {% for cliente in clientes %}
+    <h3>Nombre: {{ cliente.nombre }} {{ cliente.apellido }}</h3>
+    <p>Email: {{ cliente.email }}</p>
+    <p>Teléfono: {{ cliente.telefono }}</p>
+    <hr>
+    {% empty %}
+    <p>No hay clientes cargados.</p>
+    {% endfor %}
+
+    {% endblock %}
+   </body>
+</html>
+
+        

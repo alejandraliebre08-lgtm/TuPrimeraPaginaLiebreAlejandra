@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Busqueda de cliente</title>
+</head>
+<body>
+
+<h2>Buscar Cliente por Apellido</h2>
+
+<form method="GET">
+    {{ formulario.as_p }}
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+<hr>
+
+{% if resultados %}
+    <h3>Resultados:</h3>
+    <ul>
+        {% for cliente in resultados %}
+            <li>{{ cliente.nombre }} {{ cliente.apellido }} - {{ cliente.email }}</li>
+        {% endfor %}
+    </ul>
+{% elif resultados is not None %}
+    <p>No se encontraron clientes con ese apellido.</p>
+{% endif %}
+
+{% endblock %}
